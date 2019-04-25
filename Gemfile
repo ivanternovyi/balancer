@@ -18,7 +18,9 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'devise'
 
-gem "letter_opener", :group => :development
+gem 'letter_opener', group: :development
+
+gem 'sidekiq'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
