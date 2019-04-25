@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: load_balancer_user
+  password: 111111
+
+development:
+  <<: *default
+  database: load_balancer_development
+
+test:
+  <<: *default
+  database: load_balancer_test
+
+production:
+  <<: *default
+  database: load_balancer_production
+  username: load_balancer
+  password: <%= ENV['LOAD_BALANCER_DATABASE_PASSWORD'] %>
