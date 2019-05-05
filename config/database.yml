@@ -4,6 +4,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: load_balancer_user
   password: 111111
+  host: load_balancer.com
 
 development:
   <<: *default
@@ -16,5 +17,5 @@ test:
 production:
   <<: *default
   database: load_balancer_production
-  username: load_balancer
-  password: <%= ENV['LOAD_BALANCER_DATABASE_PASSWORD'] %>
+  username: load_balancer_user
+  password: 111111
