@@ -1,1 +1,42 @@
-<h1>Index page on Tasks</h1>
+<h1>Tasks</h1>
+
+<h2 class="-mb-0">Input number of digits:</h2>
+<%= form_tag(tasks_path, method: :post) do -%>
+    <div>
+      <%= text_field_tag 'digit', nil, placeholder: 'Enter length of a digit here...' %>
+    </div>
+    <div class="-mt"><%= submit_tag 'Compute' %></div>
+<% end -%>
+
+<% if @tasks.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Digit</th>
+        <th>Result</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td>
+            <%= task.id %>
+          </td>
+          <td>
+            <%= task.digit %>
+          </td>
+          <td>
+            <%= task.result %>
+          </td>
+          <td>
+            <%= task.created_at %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h2 style="margin-top: 40px;">No tasks found</h2>
+<% end %>
