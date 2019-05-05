@@ -10,7 +10,7 @@ class Task < ApplicationRecord
   private
 
   def prime_factorization
-    Prime.prime_division(digit).flat_map do |factor, power|
+    Prime.prime_division(digit.to_i).flat_map do |factor, power|
       [factor] * power
     end
   end
