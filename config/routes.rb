@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   root to: 'tasks#index'
 
-  resources :tasks, only: %i[new create]
+  resources :tasks, only: %i[new create] do
+    member do
+      get :compute
+    end
+  end
 
   authenticate :user do
     mount Sidekiq::Web => '/sidekiq'
