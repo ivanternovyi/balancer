@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
-  authenticate :user do
-    mount Sidekiq::Web => '/sidekiq'
-  end
+  # authenticate :user do
+  mount Sidekiq::Web => '/sidekiq'
+  # end
 end
