@@ -14,7 +14,7 @@ class TasksController < ApplicationController
   end
 
   def compute
-    ComputeFactorizationJob.perform_later(params[:id])
+    ComputeFactorizationJob.set(wait: 10.seconds).perform_later(params[:id])
     redirect_to root_path
   end
 
